@@ -5,85 +5,82 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\IsiProfilController;
 use App\Http\Controllers\TingkatAktivitasController;
 use App\Http\Controllers\AktivitasController;
+use App\Http\Controllers\HalamanOlahragaController; // Pastikan kamu punya controller ini
 
 // -----------------------------
-// ✅ Halaman Awal & Dashboard
+// ✅ Halaman Awal (Landing Page)
 // -----------------------------
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// -----------------------------
+// ✅ Halaman Dashboard
+// -----------------------------
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
-// -----------------------------
-// ✅ Halaman Dashboard (Route Baru)
-// -----------------------------
-Route::get('/halaman-dashboard', function () {
-    return view('halaman-dashboard');
-})->middleware(['auth', 'verified'])->name('halaman-dashboard');
+    Route::get('/halaman-dashboard', function () {
+        return view('halaman-dashboard');
+    })->name('halaman-dashboard');
+});
 
 // -----------------------------
 // ✅ Isi Profil
 // -----------------------------
-Route::get('/isi-profil', [IsiProfilController::class, 'index'])
-    ->middleware(['auth', 'verified'])->name('isi-profil');
-
-Route::post('/isi-profil', [IsiProfilController::class, 'store'])
-    ->middleware(['auth', 'verified'])->name('simpan-profil');
-
-// -----------------------------
-// ✅ Halaman Tingkat Aktivitas Fisik
-// -----------------------------
-Route::get('/halaman-selanjutnya', function () {
-    return view('halaman-selanjutnya');
-})->middleware(['auth', 'verified'])->name('halaman-selanjutnya');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/isi-profil', [IsiProfilController::class, 'index'])->name('isi-profil');
+    Route::post('/isi-profil', [IsiProfilController::class, 'store'])->name('simpan-profil');
+});
 
 // -----------------------------
-// ✅ Halaman Pilih Waktu Olahraga
+// ✅ Halaman Tingkat Aktivitas Fisik & Waktu
 // -----------------------------
-Route::get('/tingkat-waktu', function () {
-    return view('tingkat-waktu');
-})->middleware(['auth', 'verified'])->name('tingkat-waktu');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/halaman-selanjutnya', function () {
+        return view('halaman-selanjutnya');
+    })->name('halaman-selanjutnya');
 
-Route::post('/simpan-waktu-olahraga', [AktivitasController::class, 'simpanWaktu'])
-    ->middleware(['auth', 'verified'])->name('simpan-waktu-olahraga');
+    Route::get('/tingkat-waktu', function () {
+        return view('tingkat-waktu');
+    })->name('tingkat-waktu');
+
     Route::post('/tingkat-waktu', [AktivitasController::class, 'store']);
+    Route::post('/simpan-waktu-olahraga', [AktivitasController::class, 'simpanWaktu'])->name('simpan-waktu-olahraga');
+});
 
 // -----------------------------
 // ✅ Halaman Preferensi Makan
 // -----------------------------
-Route::get('/preferensi-makan', function () {
-    return view('preferensi-makan');
-})->middleware(['auth', 'verified'])->name('halaman-preferensi-makan');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/preferensi-makan', function () {
+        return view('preferensi-makan');
+    })->name('halaman-preferensi-makan');
 
-Route::post('/simpan-preferensi-makan', [AktivitasController::class, 'simpanPreferensiMakan'])
-    ->middleware(['auth', 'verified'])->name('simpan-preferensi-makan');
-
-// -----------------------------
-// ✅ Halaman 5 (Setelah Preferensi Makan)
-// -----------------------------
-Route::get('/halaman5', function () {
-    return view('halaman5');
-})->middleware(['auth', 'verified'])->name('halaman5');
+    Route::post('/simpan-preferensi-makan', [AktivitasController::class, 'simpanPreferensiMakan'])->name('simpan-preferensi-makan');
+});
 
 // -----------------------------
-// ✅ Halaman 6 (Setelah Halaman 5)
+// ✅ Halaman Selanjutnya
 // -----------------------------
-Route::get('/halaman6', function () {
-    return view('halaman6');
-})->middleware(['auth', 'verified'])->name('halaman6');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/halaman5', function () {
+        return view('halaman5');
+    })->name('halaman5');
+
+    Route::get('/halaman6', function () {
+        return view('halaman6');
+    })->name('halaman6');
+
+    Route::get('/halaman-sebelumnya', function () {
+        return redirect()->route('isi-profil');
+    })->name('halaman-sebelumnya');
+});
 
 // -----------------------------
-// ✅ Navigasi Sebelumnya
-// -----------------------------
-Route::get('/halaman-sebelumnya', function () {
-    return redirect()->route('isi-profil');
-})->middleware(['auth', 'verified'])->name('halaman-sebelumnya');
-
-// -----------------------------
-// ✅ Halaman Sidebar: Profil, Deteksi, Olahraga, Makanan
+// ✅ Halaman Sidebar (Profil, Deteksi, Makanan)
 // -----------------------------
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/halaman-profil', function () {
@@ -109,6 +106,9 @@ Route::middleware('auth')->group(function () {
 });
 
 // -----------------------------
-// ✅ Auth Routes (Register/Login)
+// ✅ Auth (Login, Register, Email Verification)
 // -----------------------------
+
+
+Route::get('/halaman-olahraga', [HalamanOlahragaController::class, 'index'])->name('halaman-olahraga');
 require __DIR__.'/auth.php';

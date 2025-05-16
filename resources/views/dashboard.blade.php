@@ -47,30 +47,20 @@
                             </div>
                         </div>
 
-                        <div class="flex items-center">
-                            <div class="w-1/2 font-semibold">Tinggi Badan</div>
-                            <div class="w-1/2 flex justify-end items-center gap-2">
-                                <input type="number" name="height"
-                                       class="border-b border-gray-300 w-16 text-center focus:outline-none font-semibold text-black" required>
-                                <span class="text-sm font-semibold text-black">CM</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center">
-                            <div class="w-1/2 font-semibold">Berat Badan</div>
-                            <div class="w-1/2 flex justify-end items-center gap-2">
-                                <input type="number" name="weight"
-                                       class="border-b border-gray-300 w-16 text-center focus:outline-none font-semibold text-black" required>
-                                <span class="text-sm font-semibold text-black">KG</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center">
-                            <div class="w-1/2 font-semibold">BMI</div>
-                            <div class="w-1/2 text-right text-xs text-gray-500 font-semibold">
-                                Your BMI can't be edited as it is a<br>function of your weight & height.
-                            </div>
-                        </div>
+                        <div class="bg-white text-[#1E1F9D] rounded-lg p-6">
+                    <h2 class="font-semibold mb-4">Pengukur BMI</h2>
+                    <div class="mb-4">
+                        <label for="tinggi" class="block text-gray-700 text-sm font-bold mb-2">Tinggi (cm):</label>
+                        <input type="number" id="tinggi" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Masukkan tinggi dalam cm">
+                    </div>
+                    <div class="mb-4">
+                        <label for="berat" class="block text-gray-700 text-sm font-bold mb-2">Berat Badan (kg):</label>
+                        <input type="number" id="berat" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Masukkan berat badan dalam kg">
+                    </div>
+                    <button onclick="hitungBMI()" class="bg-[#007bff] hover:bg-[#0056b3] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Hitung BMI</button>
+                    <div id="bmiResult" class="mt-4 font-semibold"></div>
+                    <div id="bmiCategory" class="mt-2 text-sm italic text-gray-600"></div>
+                </div>
 
                         <div class="flex items-center">
                             <div class="w-1/2 font-semibold">Tingkat Aktivitas</div>
@@ -99,4 +89,42 @@
             </div>
         </div>
     </div>
+    <script>
+        function hitungBMI() {
+            const tinggiInput = document.getElementById('tinggi');
+            const beratInput = document.getElementById('berat');
+            const resultDiv = document.getElementById('bmiResult');
+            const categoryDiv = document.getElementById('bmiCategory');
+
+            const tinggiCm = parseFloat(tinggiInput.value);
+            const beratKg = parseFloat(beratInput.value);
+
+            if (isNaN(tinggiCm) || isNaN(beratKg) || tinggiCm <= 0 || beratKg <= 0) {
+                resultDiv.textContent = 'Masukkan tinggi dan berat badan yang valid.';
+                categoryDiv.textContent = '';
+                return;
+            }
+
+            // Konversi tinggi dari cm ke meter
+            const tinggiMeter = tinggiCm / 100;
+
+            // Hitung BMI
+            const bmi = beratKg / (tinggiMeter * tinggiMeter);
+            const roundedBmi = bmi.toFixed(2);
+
+            let category = '';
+            if (bmi < 18.5) {
+                category = 'Kekurangan Berat Badan';
+            } else if (bmi < 25) {
+                category = 'Berat Badan Normal';
+            } else if (bmi < 30) {
+                category = 'Kelebihan Berat Badan';
+            } else {
+                category = 'Obesitas';
+            }
+
+            resultDiv.textContent = `BMI Anda: ${roundedBmi}`;
+            categoryDiv.textContent = `Kategori: ${category}`;
+        }
+    </script>
 </x-app-layout>

@@ -15,13 +15,13 @@
 
                     <div>
                         <h4 class="font-semibold mb-2">Makan Pagi</h4>
-                        <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <img src="{{ asset('images/makan_pagi_1.jpg') }}" alt="3 kentang sedang" class="rounded-md w-full h-auto">
+                                <img src="{{ asset('images/kentang.jpg') }}" alt="3 kentang sedang" class="rounded-md w-full h-auto">
                                 <p class="text-sm mt-1">3 kentang sedang</p>
                             </div>
                             <div>
-                                <img src="{{ asset('images/makan_pagi_2.jpg') }}" alt="Orak-arik sayuran" class="rounded-md w-full h-auto">
+                                <img src="{{ asset('images/sayur1.jpeg') }}" alt="Orak-arik sayuran" class="rounded-md w-full h-auto">
                                 <p class="text-sm mt-1">2 scoops whey protein berbasis protein,<br>1 cup bayam cincang,<br>1/2 cup jamur iris,<br>2 sendok teh minyak zaitun,<br>3 telur besar, orak-arik, 1 ons keju cheddar rendah lemak</p>
                             </div>
                         </div>
@@ -31,11 +31,11 @@
                         <h4 class="font-semibold mb-2">Makan Siang</h4>
                         <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <img src="{{ asset('images/makan_siang_1.jpg') }}" alt="Ikan tuna" class="rounded-md w-full h-auto">
+                                <img src="{{ asset('images/ikan.jpeg') }}" alt="Ikan tuna" class="rounded-md w-full h-auto">
                                 <p class="text-sm mt-1">Ikan tuna (170 gram)<br>Kalori: Sekitar 200<br>Protein: Sekitar 40 gram<br>Karbohidrat: 0 gram<br>Lemak: Sekitar 2 gram<br>Vitamin & mineral: Sumber vitamin D dan B12<br>Serat: 0 gram</p>
                             </div>
                             <div>
-                                <img src="{{ asset('images/makan_siang_2.jpg') }}" alt="Salad ayam" class="rounded-md w-full h-auto">
+                                <img src="{{ asset('images/salad.jpeg') }}" alt="Salad ayam" class="rounded-md w-full h-auto">
                                 <p class="text-sm mt-1">Potongan dada ayam (100 gram)<br>Kalori: Sekitar 165<br>Protein: Sekitar 31 gram<br>Karbohidrat: 0 gram<br>Lemak: Sekitar 3.6 gram<br>Vitamin & mineral: Sumber vitamin B<br>Serat: Tergantung sayuran yang ditambahkan</p>
                             </div>
                         </div>
@@ -45,15 +45,15 @@
                         <h4 class="font-semibold mb-2">Makan Malam</h4>
                         <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <img src="{{ asset('images/makan_malam_1.jpg') }}" alt="Salmon panggang" class="rounded-md w-full h-auto">
+                                <img src="{{ asset('images/salmon.jpeg') }}" alt="Salmon panggang" class="rounded-md w-full h-auto">
                                 <p class="text-sm mt-1">Salmon (115-150 gram)<br>Kalori: Sekitar 150-250<br>Protein: Sekitar 22-25 gram<br>Lemak: Sedang hingga tinggi (tergantung jenis)<br>Karbohidrat: 0 gram<br>Vitamin & mineral: Tinggi akan Omega-3, vitamin D, dan B</p>
                             </div>
                             <div>
-                                <img src="{{ asset('images/makan_malam_2.jpg') }}" alt="Steak tanpa lemak" class="rounded-md w-full h-auto">
+                                <img src="{{ asset('images/steak.jpeg') }}" alt="Steak tanpa lemak" class="rounded-md w-full h-auto">
                                 <p class="text-sm mt-1">Potongan steak tanpa lemak (100 gram)<br>Kalori: Sekitar 150-200<br>Protein: Sekitar 25-30 gram<br>Lemak: Rendah (tergantung potongan)<br>Karbohidrat: 0 gram<br>Vitamin & mineral: Tinggi akan zat besi dan B</p>
                             </div>
                             <div>
-                                <img src="{{ asset('images/makan_malam_3.jpg') }}" alt="Yogurt Yunani" class="rounded-md w-full h-auto">
+                                <img src="{{ asset('images/yogurt.jpeg') }}" alt="Yogurt Yunani" class="rounded-md w-full h-auto">
                                 <p class="text-sm mt-1">Yogurt Yunani tanpa lemak (170 gram)<br>Kalori: Sekitar 100<br>Protein: Sekitar 17 gram<br>Karbohidrat: Sekitar 6-7 gram<br>Lemak: 0 gram<br>Kalsium: Tinggi<br>Tambahan: Beri atau sedikit madu (opsional)</p>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                     <div>
                         <h4 class="font-semibold mb-2">Cardio (Jogging/Berjalan Cepat)</h4>
                         <div class="mb-4 flex items-center gap-4">
-                            <img src="{{ asset('images/cardio.jpg') }}" alt="Cardio" class="rounded-md w-1/3 h-auto">
+                            <img src="{{ asset('images/cardio.jpeg') }}" alt="Cardio" class="rounded-md w-1/3 h-auto">
                             <div>
                                 <p class="text-sm">Durasi: Untuk pemula, bisa dimulai dengan 20-30 menit.</p>
                                 <p class="text-sm">Tingkatkan durasi secara bertahap hingga 45-60 menit.</p>
@@ -78,7 +78,7 @@
                     <div>
                         <h4 class="font-semibold mb-2">Latihan Kekuatan (Squat)</h4>
                         <div class="mb-4 flex items-center gap-4">
-                            <img src="{{ asset('images/squat.jpg') }}" alt="Squat" class="rounded-md w-1/3 h-auto">
+                            <img src="{{ asset('images/squat.jpeg') }}" alt="Squat" class="rounded-md w-1/3 h-auto">
                             <div>
                                 <p class="text-sm">Repetisi: Untuk pemula, 8-12 repetisi per set. Lakukan 2-3 set.</p>
                                 <p class="text-sm">Istirahat: 60-90 detik antara set atau lebih sesuai dengan peningkatan kekuatan.</p>
@@ -89,7 +89,7 @@
                     <div>
                         <h4 class="font-semibold mb-2">Latihan Kekuatan (Push-up)</h4>
                         <div class="mb-4 flex items-center gap-4">
-                            <img src="{{ asset('images/pushup.jpg') }}" alt="Push-up" class="rounded-md w-1/3 h-auto">
+                            <img src="{{ asset('images/pushup.jpeg') }}" alt="Push-up" class="rounded-md w-1/3 h-auto">
                             <div>
                                 <p class="text-sm">Durasi: Untuk pemula, bisa dimulai dengan 20-30 menit.</p>
                                 <p class="text-sm">Tingkatkan durasi secara bertahap hingga 45-60 menit.</p>
@@ -101,7 +101,7 @@
                     <div>
                         <h4 class="font-semibold mb-2">Latihan Kekuatan (Lunge)</h4>
                         <div class="mb-4 flex items-center gap-4">
-                            <img src="{{ asset('images/lunge.jpg') }}" alt="Lunge" class="rounded-md w-1/3 h-auto">
+                            <img src="{{ asset('images/lunge.jpeg') }}" alt="Lunge" class="rounded-md w-1/3 h-auto">
                             <div>
                                 <p class="text-sm">Untuk pemula, 8-12 repetisi per kaki per set. Lakukan 2-3 set per kaki.</p>
                                 <p class="text-sm">Modifikasi: Lakukan tanpa beban atau jika menguasai tambahkan dumbbell seiring dengan peningkatan kekuatan.</p>
