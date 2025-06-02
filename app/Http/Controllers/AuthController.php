@@ -1,3 +1,5 @@
+<?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -12,20 +14,21 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required']
-        ]);
+   public function login(Request $request)
+{
+    $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+    if (Auth::attempt($credentials)) {
+        $user = Auth::user();
+        if ($user->role === 'admin') {
+            return redirect('/admin/dashboard');
+        } else {
+            return redirect('/user/home');
         }
-
-        return back()->withErrors(['email' => 'Email atau password salah.']);
     }
+
+    return back()->withErrors(['email' => 'Email atau password salah']);
+}
 
     public function showRegisterForm()
     {
