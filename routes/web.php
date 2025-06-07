@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\IsiProfilController;
 use App\Http\Controllers\TingkatAktivitasController;
@@ -82,10 +84,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 // -----------------------------
 // ✅ Halaman Sidebar (Profil, Deteksi, Makanan)
 // -----------------------------
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/halaman-profil', function () {
-        return view('halaman-profil');
-    })->name('halaman-profil');
+Route::middleware(['auth', 'verified'])->controller(IsiProfilController::class)->group(function () {
+    Route::get('/halaman-profil', [IsiProfilController::class, 'index'])->name('halaman-profil');
+    Route::post('/halaman-profil', [IsiProfilController::class, 'store'])->name('halaman-profil.store');
 
     Route::get('/deteksi', function () {
         return view('deteksi');
