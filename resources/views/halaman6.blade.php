@@ -113,7 +113,7 @@
 
             <div class="mt-8 text-right">
             <a href="{{ route('halaman-dashboard') }}" class="bg-[#73DE3F] text-black px-6 py-3 rounded-full hover:bg-[#66CD33] focus:outline-none focus:ring-2 focus:ring-[#73DE3F] focus:ring-offset-2 font-semibold">
-    Next
+    Selanjutnya
 </a>
 
             </div>

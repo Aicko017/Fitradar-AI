@@ -28,7 +28,7 @@
                 </a>
 
                 {{-- Deteksi --}}
-                <a href="{{ route('deteksi') }}" class="flex items-center text-gray-300 hover:text-white">
+                <a href="{{ route('deteksi') }}" class="flex items-center text-white bg-[#1E1F9D] px-3 py-2 rounded-lg">
                     <svg class="h-6 w-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 5v.01M12 12v.01M12 19v.01" />
@@ -67,24 +67,28 @@
 
 
             {{-- Hasil Deteksi --}}
-            <div id="resultContainer" class="hidden">
-                <h2 class="text-xl font-semibold mb-4">Hasil Deteksi: <span id="foodName" class="font-bold"></span></h2>
-                <div class="mb-4">
-                    <img id="capturedImage" src="#" alt="Captured Image" class="w-64 h-auto rounded-md">
-                </div>
-                <p class="mb-2">Informasi Nutrisi (Perkiraan):</p>
-                <ul class="list-disc ml-6 mb-4">
-                    <li>Kalori: <span id="calories" class="font-semibold"></span></li>
-                    <li>Protein: <span id="protein" class="font-semibold"></span></li>
-                    <li>Lemak: <span id="fat" class="font-semibold"></span></li>
-                    <li>Karbohidrat: <span id="carbs" class="font-semibold"></span></li>
-                    <li>Serat: <span id="fiber" class="font-semibold"></span></li>
-                </ul>
-                <p class="mb-2">Porsi: <span id="servingSize" class="font-semibold"></span></p>
-                <p>Akurasi: <span id="accuracy" class="font-semibold"></span></p>
-            </div>
+           <div id="resultContainer" class="hidden max-w-md mx-auto bg-white rounded-2xl shadow-md p-6 mt-6">
+    <h2 class="text-xl font-bold text-center text-[#1E1F9D] mb-4">
+        Hasil Deteksi: <span id="foodName" class="font-semibold text-black"></span>
+    </h2>
+    <div class="flex justify-center mb-4">
+        <img id="capturedImage" src="#" alt="Captured Image" class="rounded-xl w-full max-w-xs shadow-lg border border-gray-200">
+    </div>
+    <div class="text-sm text-gray-700">
+        <p class="font-semibold mb-2">Informasi Nutrisi (Perkiraan):</p>
+        <ul class="list-disc list-inside space-y-1 mb-4">
+            <li>Kalori: <span id="calories" class="font-bold text-black"></span></li>
+            <li>Protein: <span id="protein" class="font-bold text-black"></span></li>
+            <li>Lemak: <span id="fat" class="font-bold text-black"></span></li>
+            <li>Karbohidrat: <span id="carbs" class="font-bold text-black"></span></li>
+            <li>Serat: <span id="fiber" class="font-bold text-black"></span></li>
+        </ul>
+        <p class="mb-1">Porsi: <span id="servingSize" class="font-semibold text-black"></span></p>
+        <p>Akurasi: <span id="accuracy" class="font-semibold text-black"></span></p>
+    </div>
+</div>
 
-            {{-- Rekomendasi --}}
+                {{-- Rekomendasi --}}
             <div id="recommendationContainer" class="mt-8 hidden">
                 <h2 class="text-xl font-semibold mb-4">Rekomendasi Makanan Alternatif:</h2>
                 <ul id="recommendationsList" class="list-disc ml-6"></ul>
@@ -164,7 +168,8 @@
         carbs.textContent = data.nutrition?.carbs || '-';
         fiber.textContent = data.nutrition?.fiber || '-';
         servingSize.textContent = data.serving_size || '-';
-        accuracy.textContent = data.accuracy ? `${(data.accuracy * 100).toFixed(2)}%` : '-';
+        accuracy.textContent = data.accuracy ? (data.accuracy * 100).toFixed(2) + "%" : '-';
+
     }
 
     function displayRecommendations(recommendations) {

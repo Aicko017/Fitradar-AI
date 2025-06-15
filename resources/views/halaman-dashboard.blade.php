@@ -6,7 +6,7 @@
                 <span class="text-xl font-semibold">FITRADAR<br>AI</span>
             </div>
             <nav class="space-y-4">
-                <a href="halaman-dashboard" class="flex items-center text-gray-300 hover:text-white">
+                <a href="halaman-dashboard" class="flex items-center text-white bg-[#1E1F9D] px-3 py-2 rounded-lg">
                     <svg class="h-6 w-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0l-2-2m2 2l7 7"></path></svg>
                     <span>Tinjauan</span>
                 </a>
