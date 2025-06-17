@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="min-h-screen bg-[#1E1F9D]">
+    <div class="min-h-screen bg-[#1E1F9D] px-4 sm:px-0">
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8 py-8">
-            <div class="bg-white p-8 rounded-2xl shadow-lg">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg">
 
                 <!-- Header -->
                 <div class="text-center mb-8 text-[#1E1F9D]">
@@ -23,9 +23,9 @@
 
                         <!-- Opsi: Pemula -->
                         <label class="block border border-gray-300 rounded-md p-4 hover:bg-gray-100 cursor-pointer transition">
-                            <div class="flex items-center">
+                            <div class="flex flex-col sm:flex-row sm:items-center">
                                 <input type="radio" name="tingkat_aktivitas" value="pemula" class="form-radio-custom">
-                                <div class="ml-4">
+                                <div class="sm:ml-4 mt-2 sm:mt-0">
                                     <span class="font-semibold text-gray-700 block">Pemula</span>
                                     <p class="text-gray-500 text-sm">(Saya baru memulai dan mempelajari dasar-dasar olahraga)</p>
                                 </div>
@@ -34,9 +34,9 @@
 
                         <!-- Opsi: Menengah -->
                         <label class="block border border-gray-300 rounded-md p-4 hover:bg-gray-100 cursor-pointer transition">
-                            <div class="flex items-center">
+                            <div class="flex flex-col sm:flex-row sm:items-center">
                                 <input type="radio" name="tingkat_aktivitas" value="menengah" class="form-radio-custom">
-                                <div class="ml-4">
+                                <div class="sm:ml-4 mt-2 sm:mt-0">
                                     <span class="font-semibold text-gray-700 block">Menengah</span>
                                     <p class="text-gray-500 text-sm">(Saya sudah berolahraga beberapa waktu dan merasa percaya diri dengan sebagian besar latihan)</p>
                                 </div>
@@ -45,9 +45,9 @@
 
                         <!-- Opsi: Berpengalaman -->
                         <label class="block border border-gray-300 rounded-md p-4 hover:bg-gray-100 cursor-pointer transition">
-                            <div class="flex items-center">
+                            <div class="flex flex-col sm:flex-row sm:items-center">
                                 <input type="radio" name="tingkat_aktivitas" value="berpengalaman" class="form-radio-custom">
-                                <div class="ml-4">
+                                <div class="sm:ml-4 mt-2 sm:mt-0">
                                     <span class="font-semibold text-gray-700 block">Berpengalaman</span>
                                     <p class="text-gray-500 text-sm">(Saya sudah lama berolahraga dan ingin sesuatu yang menantang)</p>
                                 </div>
@@ -55,17 +55,13 @@
                         </label>
 
                         <!-- Tombol Selanjutnya -->
-                        <!-- Tombol Selanjutnya -->
-<!-- Tombol Selanjutnya -->
-<div class="h-6"></div> <!-- Spacer manual -->
-<div class="text-center">
-    <a href="{{ route('tingkat-waktu') }}"
-        class="bg-[#1E1F9D] text-white px-10 py-3 rounded-full hover:bg-[#15168a] focus:outline-none focus:ring-2 focus:ring-[#1E1F9D] focus:ring-offset-2 transition-all duration-200 font-bold">
-        Selanjutnya
-    </a>
-</div>
-
-
+                        <div class="h-6"></div>
+                        <div class="text-center">
+                            <a href="{{ route('tingkat-waktu') }}"
+                               class="bg-[#1E1F9D] text-white px-10 py-3 rounded-full hover:bg-[#15168a] focus:outline-none focus:ring-2 focus:ring-[#1E1F9D] focus:ring-offset-2 transition-all duration-200 font-bold inline-block">
+                                Selanjutnya
+                            </a>
+                        </div>
                     </form>
                 </div>
 

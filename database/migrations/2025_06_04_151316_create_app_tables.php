@@ -9,7 +9,8 @@ return new class extends Migration {
     {
         
 
-        Schema::create('makanans', function (Blueprint $table) {
+        Schema::create('makanans_v2', function (Blueprint $table) {
+
             $table->id();
             $table->string('nama');
             $table->integer('kalori');

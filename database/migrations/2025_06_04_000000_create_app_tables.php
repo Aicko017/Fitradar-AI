@@ -7,16 +7,8 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-        });
-
+        
+        // Biarkan bagian lain seperti ini
         Schema::create('makanans', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
@@ -27,32 +19,7 @@ return new class extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('olahragas', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->integer('durasi'); // menit
-            $table->integer('kalori_terbakar');
-            $table->string('kategori')->nullable();
-            $table->timestamps();
-        });
-
-        Schema::create('preferensis', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('tujuan'); // misalnya: "menurunkan berat badan"
-            $table->string('aktivitas');
-            $table->string('pola_makan');
-            $table->timestamps();
-        });
-
-        Schema::create('rekomendasis', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('jenis'); // makanan/olahraga
-            $table->string('rekomendasi');
-            $table->text('deskripsi')->nullable();
-            $table->timestamps();
-        });
+        // dst...
     }
 
     public function down(): void
@@ -61,6 +28,5 @@ return new class extends Migration {
         Schema::dropIfExists('preferensis');
         Schema::dropIfExists('olahragas');
         Schema::dropIfExists('makanans');
-        Schema::dropIfExists('users');
     }
 };
