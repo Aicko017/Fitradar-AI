@@ -91,7 +91,7 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            padding: 4rem 2rem;
+            padding: 3rem 3rem;
             background-color: white;
             color: #1E1F9D;
         }
@@ -154,11 +154,11 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 1rem;
         }
 
         .feature {
-            width: 400px;
+            width: 300px;
             text-align: center;
         }
 
@@ -175,7 +175,7 @@
         }
 
         .feature p {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         .about-container {
@@ -233,14 +233,14 @@
             background-color: #1E1F9D;
             color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 1rem;
         }
 
         .footer .footer-logo-text {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 1rem;
+           
         }
 
         .footer .footer-logo-text img {
@@ -259,10 +259,10 @@
         }
 
         .video-section {
-            background-color: #ffffff;
+            background-color: ##1E1F9D;
             padding: 3rem 2rem;
             text-align: center;
-            color: #1E1F9D;
+            color: #ffffff;
         }
 
         .video-title {
@@ -380,7 +380,7 @@
                 if (isUserRegistered === 'true') {
                     window.location.href = '/halaman-dashboard.blade.php';
                 } else {
-                    window.location.href = '/login';
+                    window.location.href = '/register';
                 }
             });
 
