@@ -300,7 +300,8 @@
 
         <div class="menu">
             <a href="#tentang">Tentang kami</a>
-            <button onclick="window.location.href='/login'">Masuk</button>
+            <button onclick="window.location.href='{{ route('login') }}'">Masuk</button>
+
         </div>
     </div>
 

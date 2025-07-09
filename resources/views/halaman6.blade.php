@@ -2,10 +2,21 @@
     <div class="min-h-screen" style="background-color: #1E1F9D;">
         <div class="min-h-screen bg-[#1E1F9D] py-8 text-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="mb-8 text-center">
-                    <h2 class="text-2xl font-semibold">Especially for Malnutrition we recommend</h2>
-                    <p class="text-lg">this to help you improve</p>
-                </div>
+              <div class="mb-8 text-center">
+  <h2 class="text-2xl font-semibold">Rekomendasi untuk Mengatasi Kekurangan Gizi</h2>
+  <p class="text-lg">Rangkaian ini dirancang untuk mendukung perkembangan Anda</p>
+  <p class="text-md mt-2">Berikut adalah saran yang dapat Anda lakukan sebelum memulai aktivitas pagi:</p>
+  <ul class="list-disc list-inside text-sm mt-2 space-y-1 text-white/90">
+    <li>Konsumsi sarapan bergizi tinggi setiap pagi untuk menambah energi dan memperbaiki status gizi.</li>
+    <li>Lakukan olahraga ringan hingga sedang setiap pagi, sekitar 30 menit per sesi.</li>
+  </ul>
+  <p class="text-sm mt-4 text-white/80">
+    Target: olahraga pagi minimal 5 kali per minggu selama 4–8 minggu untuk memaksimalkan pemulihan dan peningkatan kesehatan secara signifikan.
+  </p>
+</div>
+
+
+                
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Makanan Section -->

@@ -22,6 +22,11 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+    public function healthData()
+{
+    return $this->hasOne(HealthData::class);
+}
+
 
     /**
      * The attributes that should be hidden for serialization.

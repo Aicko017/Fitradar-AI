@@ -7,7 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\IsiProfilController;
 use App\Http\Controllers\TingkatAktivitasController;
 use App\Http\Controllers\AktivitasController;
-use App\Http\Controllers\HalamanOlahragaController; // Pastikan kamu punya controller ini
+use App\Http\Controllers\HalamanOlahragaController;
 
 // -----------------------------
 // ✅ Halaman Awal (Landing Page)
@@ -98,18 +98,40 @@ Route::middleware(['auth', 'verified'])->controller(IsiProfilController::class)-
 });
 
 // -----------------------------
+// ✅ Penambahan Rute Baru (tidak mengubah kode lama)
+// -----------------------------
+Route::put('/halaman-profil/store', [ProfileController::class, 'store'])->name('halaman-profil.store');
+Route::get('/halaman-profil', [ProfileController::class, 'edit'])->name('halaman-profil');
+Route::put('/halaman-profil/update', [ProfileController::class, 'update'])->name('halaman-profil.update');
+Route::delete('/halaman-profil/hapus-akun', [ProfileController::class, 'destroy'])->name('halaman-profil.destroy');
+Route::get('/halaman-profil/next', [ProfileController::class, 'next'])->name('halaman-selanjutnya');
+
+// -----------------------------
 // ✅ Profile Management
 // -----------------------------
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::post('/halaman-profil', [IsiProfilController::class, 'store'])->name('halaman-profil.store');
+    Route::put('/halaman-profil', [IsiProfilController::class, 'update'])->name('halaman-profil.update');
+    Route::patch('/halaman-profil', [IsiProfilController::class, 'update'])->name('halaman-profil.update');
+    Route::get('/halaman-profil', [IsiProfilController::class, 'index'])
+        ->name('halaman-profil')
+        ->middleware('auth');
+
+    Route::put('/halaman-profil/name', [IsiProfilController::class, 'updateName'])
+        ->name('halaman-profil.updateName')
+        ->middleware('auth');
 });
+
+// -----------------------------
+// ✅ Halaman Olahraga
+// -----------------------------
+Route::get('/halaman-olahraga', [HalamanOlahragaController::class, 'index'])->name('halaman-olahraga');
 
 // -----------------------------
 // ✅ Auth (Login, Register, Email Verification)
 // -----------------------------
-
-
-Route::get('/halaman-olahraga', [HalamanOlahragaController::class, 'index'])->name('halaman-olahraga');
 require __DIR__.'/auth.php';

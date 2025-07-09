@@ -128,8 +128,8 @@
                 category = 'Obesitas';
             }
 
-            resultDiv.textContent = `BMI Anda: ${roundedBmi}`;
-            categoryDiv.textContent = `Kategori: ${category}`;
+            resultDiv.textContent = BMI Anda: ${roundedBmi};
+            categoryDiv.textContent = Kategori: ${category};
         }
     </script>
 </x-app-layout>
