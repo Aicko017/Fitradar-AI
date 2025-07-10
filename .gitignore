@@ -22,3 +22,21 @@ yarn-error.log
 /.vscode
 /.zed
 Fitradar-AI.zip
+
+
+# AI Deteksi: Python cache & env
+ai/deteksi/venv/
+ai/deteksi/__pycache__/
+ai/deteksi/.ipynb_checkpoints/
+
+# Temporary/log/backup files (AI)
+ai/deteksi/*.log
+ai/deteksi/*.tmp
+ai/deteksi/*.bak
+
+# ==========================================
+# ✅ DO NOT IGNORE these (explicitly tracked)
+# These were already pushed and should stay:
+# - ai/deteksi/best.pt
+# - ai/deteksi/food_nutrition_dataset_full.csv
+# No need to whitelist, just don’t ignore "*.pt" or "*.csv"
