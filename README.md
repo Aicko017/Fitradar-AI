@@ -59,3 +59,20 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+# 🤖 AI Deteksi Makanan - FitRadar AI
+
+Sistem ini digunakan untuk mendeteksi jenis makanan dari gambar menggunakan model YOLOv8 yang telah dilatih, dan mengembalikan hasil deteksi beserta informasi gizinya.
+
+---
+
+## 🚀 Cara Menjalankan
+
+### 1. Aktifkan virtual environment untuk menjalankan
+```bash
+# PADA WINDOWS
+venv\Scripts\activate
+# PADA LINUX / MAC
+source venv/bin/activate
+# Setelah venv nyala
+jalankan ai-deteksi di terminal = uvicorn app:app --host 127.0.0.1 --port 8001 --reload
