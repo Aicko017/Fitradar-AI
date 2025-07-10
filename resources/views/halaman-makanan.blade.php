@@ -1,47 +1,51 @@
 <x-app-layout>
-    <div class="min-h-screen bg-[#F4F4F4] text-gray-800 flex">
-
-        {{-- Sidebar --}}
-        <aside class="fixed top-0 left-0 h-full w-64 bg-[#15168a] text-white p-6 shadow-lg z-10">
-            <div class="flex items-center mb-10">
-                <img src="{{ asset('images/Logo.png') }}" alt="FitRadar AI Logo" class="h-20 w-auto mr-2">
-                <span class="text-xl font-bold leading-tight">FITRADAR<br>AI</span>
+    <div class="min-h-screen bg-[#1E1F9D] text-white flex flex-col lg:flex-row">
+        <!-- SIDEBAR (Desktop) -->
+        <aside class="hidden lg:block fixed top-0 left-0 h-full w-64 bg-[#15168a] text-white p-6 z-40">
+            <div class="flex items-center mb-8">
+                <img src="{{ asset('images/Logo.png') }}" alt="Logo" class="h-20 w-auto mr-2">
+                <span class="text-xl font-semibold leading-tight">FITRADAR<br>AI</span>
             </div>
-
             <nav class="space-y-4">
-                <a href="{{ route('halaman-dashboard') }}" class="flex items-center gap-3 text-gray-300 hover:text-white transition-all">
-                     <svg class="h-6 w-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0l-2-2m2 2l7 7"></path></svg>
-                    <span>Tinjauan</span>
-                </a>
-                <a href="{{ route('halaman-profil') }}" class="flex items-center gap-3 text-gray-300 hover:text-white transition-all">
-                    <svg class="h-6 w-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                    <span>Profil</span>
-                </a>
-                <a href="{{ route('deteksi') }}" class="flex items-center gap-3 text-gray-300 hover:text-white transition-all">
-                    <svg class="h-6 w-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 11-2 0 1 1 0 012 0zm0 7a1 1 0 11-2 0 1 1 0 012 0zm0 7a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
-                    <span>Deteksi</span>
-
-                </a>
-                <a href="{{ route('halaman-makanan') }}" class="flex items-center gap-3 text-white bg-[#1E1F9D] px-3 py-2 rounded-lg">
-                     <svg class="h-6 w-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 7v-1c0-1.1.9-2 2-2h12a2 2 0 012 2v1m-1 5h-.586a1 1 0 00-.707.293l-5 5a1 1 0 00-1.414 0l-5-5" />
-                    </svg>                    <span>Makanan</span>
-                </a>
-                <a href="{{ route('halaman-olahraga') }}" class="flex items-center gap-3 text-gray-300 hover:text-white transition-all">
-                     <svg class="h-6 w-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v-1c0-1.1.9-2 2-2h12a2 2 0 012 2v1m-1 5h-.586a1 1 0 00-.707.293l-5 5a1 1 0 00-1.414 0l-5-5A1 1 0 004.586 12H4m16 0h-.586a1 1 0 01-.707-.293l-5-5a1 1 0 01-1.414 0l-5 5A1 1 0 014.586 12H4"></path></svg>
-                    <span>olahraga</span>
-                </a>
+                <a href="{{ route('halaman-dashboard') }}" class="flex items-center text-gray-300 hover:text-white">Tinjauan</a>
+                <a href="{{ route('halaman-profil') }}" class="flex items-center text-gray-300 hover:text-white">Profil</a>
+                <a href="{{ route('deteksi') }}" class="flex items-center text-gray-300 hover:text-white">Deteksi</a>
+                <a href="{{ route('halaman-makanan') }}" class="flex items-center text-white bg-[#1E1F9D] px-3 py-2 rounded-lg">Makanan</a>
+                <a href="{{ route('halaman-olahraga') }}" class="flex items-center text-gray-300 hover:text-white">Olahraga</a>
             </nav>
         </aside>
 
-        {{-- Main Content --}}
-        <main class="flex-1 pl-64 p-10">
-            <h1 class="text-3xl font-bold text-center text-[#15168a] mb-10">MENU REKOMENDASI MAKANAN</h1>
+        <!-- MOBILE HEADER -->
+        <div class="lg:hidden bg-[#15168a] p-4 flex items-center justify-between z-50">
+            <button id="mobileMenuBtn" class="text-white p-2 hover:bg-[#1E1F9D] rounded-lg transition-colors">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="flex items-center">
+                <img src="{{ asset('images/Logo.png') }}" alt="Logo" class="h-10 w-auto mr-2">
+                <span class="text-lg font-bold">FITRADAR AI</span>
+            </div>
+            <div class="w-10"></div>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div id="mobileMenu" class="lg:hidden hidden bg-[#15168a] px-4 py-2 space-y-2 z-40">
+            <a href="{{ route('halaman-dashboard') }}" class="block text-white hover:text-gray-300">Tinjauan</a>
+            <a href="{{ route('halaman-profil') }}" class="block text-white hover:text-gray-300">Profil</a>
+            <a href="{{ route('deteksi') }}" class="block text-white hover:text-gray-300">Deteksi</a>
+            <a href="{{ route('halaman-makanan') }}" class="block bg-[#1E1F9D] text-white px-3 py-1 rounded">Makanan</a>
+            <a href="{{ route('halaman-olahraga') }}" class="block text-white hover:text-gray-300">Olahraga</a>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 lg:pl-64 p-6">
+            <h1 class="text-4xl font-bold text-center text-white mb-10">MENU REKOMENDASI MAKANAN</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                {{-- Veggie Burger --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <!-- VEGETARIAN BURGER -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden text-gray-800">
                     <img src="{{ asset('images/burger.jpeg') }}" alt="Veggie Burger" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h2 class="text-xl font-semibold text-[#15168a] mb-2">VEGGIE BURGER</h2>
@@ -51,8 +55,8 @@
                     </div>
                 </div>
 
-                {{-- Mushroom Rendang --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <!-- MUSHROOM RENDANG -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden text-gray-800">
                     <img src="{{ asset('images/mushroom.jpeg') }}" alt="Mushroom Rendang" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h2 class="text-xl font-semibold text-[#15168a] mb-2">MUSHROOM RENDANG</h2>
@@ -62,8 +66,8 @@
                     </div>
                 </div>
 
-                {{-- Earth Dumplings --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <!-- EARTH DUMPLINGS -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden text-gray-800">
                     <img src="{{ asset('images/earth.jpeg') }}" alt="Earth Dumplings" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h2 class="text-xl font-semibold text-[#15168a] mb-2">EARTH DUMPLINGS</h2>
@@ -73,8 +77,8 @@
                     </div>
                 </div>
 
-                {{-- Fried Chicken (Tofu) --}}
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <!-- FRIED CHICKEN TOFU -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden text-gray-800">
                     <img src="{{ asset('images/fried.jpeg') }}" alt="Fried Chicken" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h2 class="text-xl font-semibold text-[#15168a] mb-2">FRIED CHICKEN (Tofu)</h2>
@@ -83,8 +87,37 @@
                             title="Vegan Fried Chicken from Tofu" allowfullscreen></iframe>
                     </div>
                 </div>
-
             </div>
         </main>
     </div>
+
+    <!-- SCRIPT UNTUK TOGGLE MENU RESPONSIVE -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const btn = document.getElementById('mobileMenuBtn');
+            const menu = document.getElementById('mobileMenu');
+
+            btn.addEventListener('click', function () {
+                menu.classList.toggle('hidden');
+            });
+
+            document.addEventListener('click', function (e) {
+                setTimeout(() => {
+                    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                        menu.classList.add('hidden');
+                    }
+                }, 100);
+            });
+
+            window.addEventListener('scroll', function () {
+                menu.classList.add('hidden');
+            });
+
+            document.querySelectorAll('#mobileMenu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
 </x-app-layout>

@@ -1,70 +1,63 @@
 <x-app-layout>
-    <div class="min-h-screen bg-gray-100 text-gray-800 flex">
-
-        {{-- Sidebar --}}
-        <aside class="fixed top-0 left-0 h-full w-64 bg-[#15168a] text-white p-6 shadow-lg z-10">
+    <div class="min-h-screen bg-[#1E1F9D] text-white flex flex-col lg:flex-row">
+        <!-- Sidebar (Desktop) -->
+        <aside class="hidden lg:block fixed top-0 left-0 h-full w-64 bg-[#15168a] p-6 shadow-lg z-10">
             <div class="flex items-center mb-10">
                 <img src="{{ asset('images/Logo.png') }}" alt="FitRadar AI Logo" class="h-20 w-auto mr-2">
                 <span class="text-xl font-bold leading-tight">FITRADAR<br>AI</span>
             </div>
-
             <nav class="space-y-4">
-                <a href="{{ route('halaman-dashboard') }}" class="flex items-center gap-3 text-gray-300 hover:text-white transition-all">
-                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3" /></svg>
-                    Tinjauan
-                </a>
-                <a href="{{ route('halaman-profil') }}" class="flex items-center gap-3 text-gray-300 hover:text-white transition-all">
-                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-                    Profil
-                </a>
-                <a href="{{ route('deteksi') }}" class="flex items-center gap-3 text-gray-300 hover:text-white transition-all">
-                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01" /></svg>
-                    Deteksi
-                </a>
-                <a href="{{ route('halaman-makanan') }}" class="flex items-center gap-3 text-gray-300 hover:text-white transition-all">
-                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v-1c0-1.1.9-2 2-2h12a2 2 0 012 2v1m-1 5h-.586a1 1 0 00-.707.293l-5 5a1 1 0 00-1.414 0l-5-5" /></svg>
-                    Makanan
-                </a>
-               <a href="{{ route('halaman-olahraga') }}" class="flex items-center gap-3 text-white bg-[#1E1F9D] px-3 py-2 rounded-lg">
-                <svg class="h-6 w-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v-1c0-1.1.9-2 2-2h12a2 2 0 012 2v1m-1 5h-.586a1 1 0 00-.707.293l-5 5a1 1 0 00-1.414 0l-5-5A1 1 0 004.586 12H4m16 0h-.586a1 1 0 01-.707-.293l-5-5a1 1 0 01-1.414 0l-5 5A1 1 0 014.586 12H4"></path></svg>
-                <span>olahraga</span>
-</a>
-
+                <a href="{{ route('halaman-dashboard') }}" class="flex items-center gap-3 text-gray-300 hover:text-white transition-all">Tinjauan</a>
+                <a href="{{ route('halaman-profil') }}" class="flex items-center gap-3 text-gray-300 hover:text-white transition-all">Profil</a>
+                <a href="{{ route('deteksi') }}" class="flex items-center gap-3 text-gray-300 hover:text-white transition-all">Deteksi</a>
+                <a href="{{ route('halaman-makanan') }}" class="flex items-center gap-3 text-gray-300 hover:text-white transition-all">Makanan</a>
+                <a href="{{ route('halaman-olahraga') }}" class="flex items-center gap-3 text-white bg-[#1E1F9D] px-3 py-2 rounded-lg">Olahraga</a>
             </nav>
         </aside>
 
-        {{-- Main Content --}}
-        <main class="flex-1 pl-64 p-10">
-            <h1 class="text-4xl font-bold text-center text-[#15168a] mb-10">Rekomendasi Olahraga</h1>
+        <!-- Mobile Header -->
+        <div class="lg:hidden bg-[#15168a] p-4 flex items-center justify-between">
+            <button id="mobileMenuBtn" class="text-white p-2 hover:bg-[#1E1F9D] rounded-lg transition-colors">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="flex items-center">
+                <img src="{{ asset('images/Logo.png') }}" alt="FitRadar AI Logo" class="h-10 w-auto mr-2">
+                <span class="text-lg font-semibold">FITRADAR AI</span>
+            </div>
+            <div class="w-10"></div>
+        </div>
 
-           {{-- Video dan Referensi YouTube --}}
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
-    {{-- Video Utama --}}
-    <div class="flex justify-center">
-        <video class="rounded-xl shadow-xl w-full max-w-md" autoplay muted loop controls>
-            <source src="{{ asset('images/rekomendasi.mp4') }}" type="video/mp4">
-            Browser Anda tidak mendukung pemutaran video.
-        </video>
-    </div>
+        <!-- Mobile Sidebar -->
+        <div id="mobileMenu" class="lg:hidden hidden bg-[#15168a] px-4 py-2 space-y-2">
+            <a href="{{ route('halaman-dashboard') }}" class="block text-white hover:text-gray-300">Tinjauan</a>
+            <a href="{{ route('halaman-profil') }}" class="block text-white hover:text-gray-300">Profil</a>
+            <a href="{{ route('deteksi') }}" class="block text-white hover:text-gray-300">Deteksi</a>
+            <a href="{{ route('halaman-makanan') }}" class="block text-white hover:text-gray-300">Makanan</a>
+            <a href="{{ route('halaman-olahraga') }}" class="block bg-[#1E1F9D] text-white px-3 py-1 rounded">Olahraga</a>
+        </div>
 
-    {{-- Referensi YouTube --}}
-    <div class="space-y-6">
-        <h3 class="text-xl font-semibold text-[#15168a] mb-2">Referensi Video Latihan</h3>
+        <!-- Main Content -->
+        <main class="flex-1 lg:pl-64 p-6">
+            <h1 class="text-4xl font-bold text-center text-white mb-10">Rekomendasi Olahraga</h1>
 
-        <iframe class="w-full aspect-video rounded-lg shadow-md" src="https://www.youtube.com/embed/v7AYKMP6rOE" title="Yoga Pemula" allowfullscreen></iframe>
-        <iframe class="w-full aspect-video rounded-lg shadow-md" src="https://www.youtube.com/embed/aclHkVaku9U" title="Squat Pemula" allowfullscreen></iframe>
-       <iframe class="w-full aspect-video rounded-lg shadow-md"
-    src="https://www.youtube.com/embed/98cXrLyryBw"
-    title="Workout Santai Jalan di Tempat - SKWAD Fitness"
-    allowfullscreen>
-</iframe>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+                <div class="flex justify-center">
+                    <video class="rounded-xl shadow-xl w-full max-w-md" autoplay muted loop controls>
+                        <source src="{{ asset('images/rekomendasi.mp4') }}" type="video/mp4">
+                        Browser Anda tidak mendukung pemutaran video.
+                    </video>
+                </div>
 
+                <div class="space-y-6">
+                    <h3 class="text-xl font-semibold text-white mb-2">Referensi Video Latihan</h3>
+                    <iframe class="w-full aspect-video rounded-lg shadow-md" src="https://www.youtube.com/embed/v7AYKMP6rOE" title="Yoga Pemula" allowfullscreen></iframe>
+                    <iframe class="w-full aspect-video rounded-lg shadow-md" src="https://www.youtube.com/embed/aclHkVaku9U" title="Squat Pemula" allowfullscreen></iframe>
+                    <iframe class="w-full aspect-video rounded-lg shadow-md" src="https://www.youtube.com/embed/98cXrLyryBw" title="Workout Santai Jalan di Tempat - SKWAD Fitness" allowfullscreen></iframe>
+                </div>
+            </div>
 
-    </div>
-</div>
-
-
-            {{-- Rekomendasi --}}
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 @php
                     $rekomendasi = [
@@ -76,7 +69,7 @@
                 @endphp
 
                 @foreach ($rekomendasi as $item)
-                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-4 text-center">
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-4 text-center text-gray-800">
                         <img src="{{ asset('images/' . $item['img']) }}" alt="{{ $item['judul'] }}" class="w-32 h-32 mx-auto rounded-lg object-cover mb-4">
                         <h4 class="text-lg font-semibold mb-2">{{ $item['judul'] }}</h4>
                         <p class="text-sm text-gray-600">{{ $item['desc'] }}</p>
@@ -85,4 +78,21 @@
             </div>
         </main>
     </div>
+
+    <script>
+        // Toggle mobile sidebar
+        document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Optional: hide menu when clicked outside
+        document.addEventListener('click', function (event) {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.getElementById('mobileMenuBtn');
+            if (!menu.contains(event.target) && !btn.contains(event.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
 </x-app-layout>
